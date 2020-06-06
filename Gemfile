@@ -14,7 +14,10 @@ group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'simplecov'
+end
+
+group :test do
+  gem 'simplecov', require: false
 end
 
 group :development do
