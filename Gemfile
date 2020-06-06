@@ -10,11 +10,15 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rack-cors'
 gem 'fast_jsonapi'
 gem 'faraday'
+gem 'json'
+gem 'figaro'
 
 group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'webmock'
+  gem 'vcr'
 end
 
 group :test do
