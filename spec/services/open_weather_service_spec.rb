@@ -6,4 +6,23 @@ RSpec.describe OpenWeatherService do
 
     expect(service).to be_instance_of OpenWeatherService
   end
+
+  it "can return weather data for a latitude and longitude" do
+    VCR.use_cassette('latlong_weather') do
+      latitude = 39.7392358
+      longitude = -104.990251
+      service = OpenWeatherService.new
+      weather_data = service.weather_data(latitude, longitude)
+
+      expect(weather_data).to have_key(:current)
+      expect(weather_data[:current]).to have_key(:temp)
+      expect(weather_data[:current]).to have_key(:weather)
+      expect(weather_data[:current][:weather]).to have_key(:description)
+      expect(weather_data).to have_key(:hourly)
+      expect(weather_data[:hourly].first).to have_key(:temp)
+      expect(weather_data[:hourly].first).to have_key(:humidity)
+      expect(weather_data[:hourly].first).to have_key(:weather)
+      expect(weather_data[:hourly].first).to have_key(:weather)
+    end
+  end
 end
