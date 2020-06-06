@@ -8,11 +8,17 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rack-cors'
+gem 'fast_jsonapi'
+gem 'faraday'
 
 group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
   gem 'capybara'
+end
+
+group :test do
+  gem 'simplecov', require: false
 end
 
 group :development do
