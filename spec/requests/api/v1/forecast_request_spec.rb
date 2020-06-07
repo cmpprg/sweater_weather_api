@@ -10,7 +10,43 @@ RSpec.describe 'Forecast API' do
 
       json = hash_json(response.body)
 
-      require 'pry'; binding.pry
+      expect(json[:data]).to have_key(:id)
+      expect(json[:data]).to have_key(:type)
+      expect(json[:data]).to have_key(:attributes)
+
+      expect(json[:data][:attributes]).to have_key(:city_info)
+
+      expect(json[:data][:attributes]).to have_key(:current_weather)
+      expect(json[:data][:attributes][:current_weather]).to have_key(:description)
+      expect(json[:data][:attributes][:current_weather]).to have_key(:icon)
+      expect(json[:data][:attributes][:current_weather]).to have_key(:current_temp)
+      expect(json[:data][:attributes][:current_weather]).to have_key(:high_temp)
+      expect(json[:data][:attributes][:current_weather]).to have_key(:low_temp)
+      expect(json[:data][:attributes][:current_weather]).to have_key(:current_time_date)
+      expect(json[:data][:attributes][:current_weather]).to have_key(:sunrise_time)
+      expect(json[:data][:attributes][:current_weather]).to have_key(:sunset_time)
+      expect(json[:data][:attributes][:current_weather]).to have_key(:feels_like)
+      expect(json[:data][:attributes][:current_weather]).to have_key(:humidity)
+      expect(json[:data][:attributes][:current_weather]).to have_key(:visibility_mile)
+      expect(json[:data][:attributes][:current_weather]).to have_key(:uv_index)
+
+      expect(json[:data][:attributes][:current_weather][:description]).to_not be_nil
+      expect(json[:data][:attributes][:current_weather][:icon]).to_not be_nil
+      expect(json[:data][:attributes][:current_weather][:current_temp]).to_not be_nil
+      expect(json[:data][:attributes][:current_weather][:high_temp]).to_not be_nil
+      expect(json[:data][:attributes][:current_weather][:low_temp]).to_not be_nil
+      expect(json[:data][:attributes][:current_weather][:current_time_date]).to_not be_nil
+      expect(json[:data][:attributes][:current_weather][:sunrise_time]).to_not be_nil
+      expect(json[:data][:attributes][:current_weather][:sunset_time]).to_not be_nil
+      expect(json[:data][:attributes][:current_weather][:feels_like]).to_not be_nil
+      expect(json[:data][:attributes][:current_weather][:humidity]).to_not be_nil
+      expect(json[:data][:attributes][:current_weather][:visibility_mile]).to_not be_nil
+      expect(json[:data][:attributes][:current_weather][:uv_index]).to_not be_nil
+
+      #still need another weather_hour object to capture data
+      expect(json[:data][:attributes]).to have_key(:hourly_weather)
+      #still need another weather_day object to capture data
+      expect(json[:data][:attributes]).to have_key(:daily_weather)
     end
   end
 end

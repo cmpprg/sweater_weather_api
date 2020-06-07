@@ -8,22 +8,28 @@ class Forecast
   def initialize(location)
     @city = location[:city]
     @state = location[:state]
-    @city_info = "#{@city.capitalize}, #{@state.upcase}"
+    @weather ||= weather_info
+    @city_info = "#{@city}, #{@state}"
     @current_weather = CurrentWeather.new(@weather)
     @hourly_weather = HourlyWeather.new(@weather)
     @daily_weather = DailyWeather.new(@weather)
-    @weather ||= weather_info
   end
 
   private
 
   def weather_info
-    weather_service = OpenWeatherService.new
     weather_service.weather_data(geo_location.latitude, geo_location.longitude)
   end
 
   def geo_location
-    geocode_service = GeocodeService.new
-    Location.new(geocode_service.info_for(@city, @state))
+    @location ||= Location.new(geocode_service.info_for(@city, @state))
+  end
+
+  def geocode_service
+    GeocodeService.new
+  end
+
+  def weather_service
+    OpenWeatherService.new
   end
 end
