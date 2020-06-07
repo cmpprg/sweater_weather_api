@@ -1,5 +1,5 @@
 class GeocodeService
-  def lat_long(city, state)
+  def info_for(city, state)
     hashed_json(response(city, state))
   end
 

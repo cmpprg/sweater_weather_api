@@ -12,7 +12,7 @@ RSpec.describe GeocodeService do
       city = 'denver'
       state = 'co'
       service = GeocodeService.new
-      lat_long = service.lat_long(city, state)
+      lat_long = service.info_for(city, state)
 
       expect(lat_long).to have_key(:results)
       expect(lat_long[:results].first[:address_components].first[:long_name]).to eql(city.capitalize)
