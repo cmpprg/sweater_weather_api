@@ -14,4 +14,8 @@ module Convertable
   def self.unix_to_hour_formatted(unix_time)
     Time.at(unix_time).strftime('%-l %p')
   end
+
+  def self.unix_to_day_of_week(unix_time)
+    Time.at(unix_time).strftime('%A')
+  end
 end
