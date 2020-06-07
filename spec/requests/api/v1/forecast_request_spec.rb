@@ -43,8 +43,18 @@ RSpec.describe 'Forecast API' do
       expect(json[:data][:attributes][:current_weather][:visibility_mile]).to_not be_nil
       expect(json[:data][:attributes][:current_weather][:uv_index]).to_not be_nil
 
-      #still need another weather_hour object to capture data
       expect(json[:data][:attributes]).to have_key(:hourly_weather)
+      expect(json[:data][:attributes][:hourly_weather]).to have_key(:hours)
+      expect(json[:data][:attributes][:hourly_weather][:hours]).to be_instance_of(Array)
+      expect(json[:data][:attributes][:hourly_weather][:hours].length).to eql(8)
+      expect(json[:data][:attributes][:hourly_weather][:hours].first).to have_key(:hour_time)
+      expect(json[:data][:attributes][:hourly_weather][:hours].first).to have_key(:icon)
+      expect(json[:data][:attributes][:hourly_weather][:hours].first).to have_key(:temp)
+
+      require 'pry'; binding.pry
+      expect(json[:data][:attributes][:hourly_weather][:hours].first[:hour_time]).to_not be_nil
+      expect(json[:data][:attributes][:hourly_weather][:hours].first[:icon]).to_not be_nil
+      expect(json[:data][:attributes][:hourly_weather][:hours].first[:temp]).to_not be_nil
       #still need another weather_day object to capture data
       expect(json[:data][:attributes]).to have_key(:daily_weather)
     end

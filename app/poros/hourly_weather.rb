@@ -1,7 +1,11 @@
 class HourlyWeather
   def initialize(weather_info)
-    @icon = nil
-    @hour_in_day = nil
-    @temp = nil
+    @hours = collection_of_weather_hours(weather_info)
+  end
+
+  private
+
+  def collection_of_weather_hours(info)
+    info[0..7].map { |hour| WeatherHour.new(hour) }
   end
 end
