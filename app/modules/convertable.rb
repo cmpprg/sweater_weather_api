@@ -7,7 +7,7 @@ module Convertable
     Time.at(unix_time).strftime('%l:%M %p, %B %-d')
   end
 
-  def self.unix_to_time_formatted(unix_time)
+  def self.unix_to_hour_min_formatted(unix_time)
     Time.at(unix_time).strftime('%l:%M %p')
   end
 end
