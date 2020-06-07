@@ -17,12 +17,12 @@ group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'webmock'
-  gem 'vcr'
 end
 
 group :test do
   gem 'simplecov', require: false
+  gem 'webmock'
+  gem 'vcr'
 end
 
 group :development do
