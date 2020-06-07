@@ -11,7 +11,7 @@ class Forecast
     @weather ||= weather_info
     @city_info = "#{@city}, #{@state}"
     @current_weather = CurrentWeather.new(@weather)
-    @hourly_weather = HourlyWeather.new(@weather)
+    @hourly_weather = HourlyWeather.new(@weather[:hourly])
     @daily_weather = DailyWeather.new(@weather)
   end
 
