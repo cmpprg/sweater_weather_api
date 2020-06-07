@@ -17,7 +17,9 @@ class CurrentWeather
   end
 
   def visibility_in_miles(weather_info)
-    Convertable.meter_to_mile(weather_info[:current][:visibility])
+    visibility_meters = weather_info[:current][:visibility]
+    return "N/A" if visibility_meters.nil?
+    Convertable.meter_to_mile(visibility_meters)
   end
 
   def time_date_formatted(weather_info)
