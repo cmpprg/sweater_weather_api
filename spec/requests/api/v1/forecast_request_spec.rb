@@ -10,6 +10,7 @@ RSpec.describe 'Forecast API' do
 
       json = hash_json(response.body)
 
+      require 'pry'; binding.pry
       expect(json[:data]).to have_key(:id)
       expect(json[:data]).to have_key(:type)
       expect(json[:data]).to have_key(:attributes)
@@ -51,12 +52,26 @@ RSpec.describe 'Forecast API' do
       expect(json[:data][:attributes][:hourly_weather][:hours].first).to have_key(:icon)
       expect(json[:data][:attributes][:hourly_weather][:hours].first).to have_key(:temp)
 
-      require 'pry'; binding.pry
       expect(json[:data][:attributes][:hourly_weather][:hours].first[:hour_time]).to_not be_nil
       expect(json[:data][:attributes][:hourly_weather][:hours].first[:icon]).to_not be_nil
       expect(json[:data][:attributes][:hourly_weather][:hours].first[:temp]).to_not be_nil
-      #still need another weather_day object to capture data
+
       expect(json[:data][:attributes]).to have_key(:daily_weather)
+      expect(json[:data][:attributes][:daily_weather][:days]).to be_instance_of Array
+      expect(json[:data][:attributes][:daily_weather][:days].length).to eql(5)
+      expect(json[:data][:attributes][:daily_weather][:days].first).to have_key(:day_of_week)
+      expect(json[:data][:attributes][:daily_weather][:days].first).to have_key(:icon)
+      expect(json[:data][:attributes][:daily_weather][:days].first).to have_key(:description_short)
+      expect(json[:data][:attributes][:daily_weather][:days].first).to have_key(:rain)
+      expect(json[:data][:attributes][:daily_weather][:days].first).to have_key(:high_temp)
+      expect(json[:data][:attributes][:daily_weather][:days].first).to have_key(:low_temp)
+
+      expect(json[:data][:attributes][:daily_weather][:days].first[:day_of_week]).to_not be_nil
+      expect(json[:data][:attributes][:daily_weather][:days].first[:icon]).to_not be_nil
+      expect(json[:data][:attributes][:daily_weather][:days].first[:description_short]).to_not be_nil
+      expect(json[:data][:attributes][:daily_weather][:days].first[:rain]).to_not be_nil
+      expect(json[:data][:attributes][:daily_weather][:days].first[:high_temp]).to_not be_nil
+      expect(json[:data][:attributes][:daily_weather][:days].first[:low_temp]).to_not be_nil
     end
   end
 end
