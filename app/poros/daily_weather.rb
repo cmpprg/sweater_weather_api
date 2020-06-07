@@ -1,10 +1,11 @@
 class DailyWeather
   def initialize(weather_info)
-    @day = nil
-    @icon = nil
-    @description_short = nil
-    @precipitation = nil
-    @high_temp = nil
-    @low_temp = nil
+    @days = collection_of_weather_days(weather_info)
+  end
+
+  private
+
+  def collection_of_weather_days(info)
+    info[1..5].map { |day| WeatherDay.new(day) }
   end
 end

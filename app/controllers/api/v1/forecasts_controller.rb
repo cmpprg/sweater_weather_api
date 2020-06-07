@@ -14,6 +14,6 @@ class Api::V1::ForecastsController < ApplicationController
   end
 
   def split_location_params
-    params[:location].split(', ')
+    params[:location].split(',')
   end
 end

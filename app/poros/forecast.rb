@@ -8,17 +8,17 @@ class Forecast
   def initialize(location)
     @city = location[:city]
     @state = location[:state]
-    @weather ||= weather_info
+    @weather = weather_info
     @city_info = "#{@city}, #{@state}"
     @current_weather = CurrentWeather.new(@weather)
     @hourly_weather = HourlyWeather.new(@weather[:hourly])
-    @daily_weather = DailyWeather.new(@weather)
+    @daily_weather = DailyWeather.new(@weather[:daily])
   end
 
   private
 
   def weather_info
-    weather_service.weather_data(geo_location.latitude, geo_location.longitude)
+    @weather ||= weather_service.weather_data(geo_location.latitude, geo_location.longitude)
   end
 
   def geo_location
