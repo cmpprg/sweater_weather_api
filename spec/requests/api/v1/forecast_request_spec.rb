@@ -10,7 +10,6 @@ RSpec.describe 'Forecast API' do
 
       json = hash_json(response.body)
 
-      require 'pry'; binding.pry
       expect(json[:data]).to have_key(:id)
       expect(json[:data]).to have_key(:type)
       expect(json[:data]).to have_key(:attributes)
