@@ -70,4 +70,6 @@ VCR.configure do |config|
   config.cassette_library_dir = "spec/vcr"
   config.hook_into :webmock
   config.allow_http_connections_when_no_cassette = true
+  config.filter_sensitive_data('<Geocode Key>') { ENV['GEOCODE_KEY'] }
+  config.filter_sensitive_data('Weather Key') { ENV['OPEN_WEATHER_KEY'] }
 end
