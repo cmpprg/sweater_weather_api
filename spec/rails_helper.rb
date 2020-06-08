@@ -74,3 +74,10 @@ VCR.configure do |config|
   config.filter_sensitive_data('Weather Key') { ENV['OPEN_WEATHER_KEY'] }
   config.filter_sensitive_data('Unsplash Key') { ENV['UNSPLASH_KEY'] }
 end
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
+end
