@@ -12,6 +12,7 @@ gem 'fast_jsonapi'
 gem 'faraday'
 gem 'json'
 gem 'figaro'
+gem 'bcrypt'
 
 group :development, :test do
   gem 'pry'
