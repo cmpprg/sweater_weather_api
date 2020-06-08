@@ -32,7 +32,6 @@ RSpec.describe 'Foodie API' do
       expect(json[:data][:attributes][:restaurant]).to have_key(:address)
       expect(json[:data][:attributes][:restaurant][:name]).to_not be_nil
       expect(json[:data][:attributes][:restaurant][:address]).to_not be_nil
-      require 'pry'; binding.pry
     end
   end
 end
