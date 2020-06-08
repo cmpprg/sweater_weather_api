@@ -1,6 +1,5 @@
 class Api::V1::FoodiesController < ApplicationController
   def show
-    
     foodie = Foodie.new(foodie_params)
     render json: FoodieSerializer.new(foodie)
   end
