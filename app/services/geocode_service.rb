@@ -11,7 +11,7 @@ class GeocodeService
 
   def connect
     Faraday.new(base_url) do |req|
-      req.params['key'] = ENV['GEOCODE_KEY']
+      req.params['key'] = ENV['GOOGLE_KEY']
     end
   end
 
