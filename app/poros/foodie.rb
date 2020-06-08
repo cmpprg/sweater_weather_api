@@ -7,10 +7,11 @@ class Foodie
 
   def initialize(foodie_info)
     @trip ||= GoogleDirectionService.new.trip_info_for(foodie_info[:start], foodie_info[:end])
+    @cuisine = foodie_info[:search]
     @end_location = foodie_info[:end]
     @travel_time = @trip[:routes].first[:legs].first[:duration][:text]
     @forecast = FoodieForecast.new(destination_current_weather_data)
-    @restaurant = nil
+    @restaurant = FoodieRestaurant.new(restaurant_search)
   end
 
   private
@@ -28,11 +29,19 @@ class Foodie
   end
 
   def weather_service
-    OpenWeatherService.new
+    @weather ||= OpenWeatherService.new
   end
 
   def city_id
-    ZomatoService.new.city_search(lat, long)
+    zomato_service.city_id_search(destination_lat, destination_long)
+  end
+
+  def restaurant_search
+    zomato_service.restaurant_search(city_id, @cuisine)
+  end
+
+  def zomato_service
+    @zomato ||= ZomatoService.new
   end
 
 end
