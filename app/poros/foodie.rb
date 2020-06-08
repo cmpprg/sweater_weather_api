@@ -32,13 +32,14 @@ class Foodie
     @weather ||= OpenWeatherService.new
   end
 
+  def restaurant_search
+    zomato_service.restaurant_search(city_id, @cuisine)
+  end
+  
   def city_id
     zomato_service.city_id_search(destination_lat, destination_long)
   end
 
-  def restaurant_search
-    zomato_service.restaurant_search(city_id, @cuisine)
-  end
 
   def zomato_service
     @zomato ||= ZomatoService.new
