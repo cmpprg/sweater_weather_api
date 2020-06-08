@@ -10,6 +10,6 @@ class ApiKeyGenerator
   end
 
   def self.unique_data(email)
-    unix_now + email
+    "#{unix_now}#{email}"
   end
 end
