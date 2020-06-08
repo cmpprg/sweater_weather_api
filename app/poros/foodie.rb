@@ -9,27 +9,26 @@ class Foodie
     @trip ||= GoogleDirectionService.new.trip_info_for(foodie_info[:start], foodie_info[:end])
     @end_location = foodie_info[:end]
     @travel_time = @trip[:routes].first[:legs].first[:duration][:text]
-    @forecast = weather_data
-
+    @forecast = FoodieForecast.new(destination_current_weather_data)
     @restaurant = nil
   end
 
   private
 
-  def lat
+  def destination_lat
     @trip[:routes].first[:legs].first[:end_location][:lat]
   end
 
-  def long
+  def destination_long
     @trip[:routes].first[:legs].first[:end_location][:lng]
+  end
+
+  def destination_current_weather_data
+    weather_service.weather_data(destination_lat, destination_long)[:current]
   end
 
   def weather_service
     OpenWeatherService.new
   end
 
-  def current_weather_data
-    x = weather_service.weather_data(lat, long)[:current]
-    require 'pry'; binding.pry
-  end
 end
