@@ -31,4 +31,8 @@ class Foodie
     OpenWeatherService.new
   end
 
+  def city_id
+    ZomatoService.new.city_search(lat, long)
+  end
+
 end
