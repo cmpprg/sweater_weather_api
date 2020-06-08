@@ -1,11 +1,14 @@
 class Api::V1::FoodiesController < ApplicationController
   def show
+    direction_info = GoogleDirectionService.new.trip_info_for(params[:start], params[:end])
 
-    direction_info
-    direction_response = Faraday.get("https://maps.googleapis.com/maps/api/directions/json?origin=denver,co&destination=pueblo,co&key=#{ENV['GOOGLE_KEY']}")
-    hashed_response = JSON.parse(direction_response.body, symbolize_names: true)
-    require 'pry'; binding.pry
+    foodie = Foodie.new(foodie_params)
+    render json: FoodieSerializer(foodie)
+  end
 
-    google_info
+  private
+
+  def foodie_params
+    params.permit(:start, :end, :search)
   end
 end
