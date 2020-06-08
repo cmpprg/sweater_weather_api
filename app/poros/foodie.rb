@@ -6,7 +6,7 @@ class Foodie
 
 
   def initialize(foodie_info)
-    @trip ||= GoogleDirectionService.new.trip_info_for(foodie_info[:start], foodie_info[:end])
+    @trip ||= trip_info(foodie_info[:start], foodie_info[:end])
     @cuisine = foodie_info[:search]
     @end_location = foodie_info[:end]
     @travel_time = @trip[:routes].first[:legs].first[:duration][:text]
@@ -35,14 +35,20 @@ class Foodie
   def restaurant_search
     zomato_service.restaurant_search(city_id, @cuisine)
   end
-  
+
   def city_id
     zomato_service.city_id_search(destination_lat, destination_long)
   end
-
 
   def zomato_service
     @zomato ||= ZomatoService.new
   end
 
+  def trip_info(origin, destination)
+    directions_service.trip_info_for(origin, destination)
+  end
+
+  def directions_service
+    @directions ||= GoogleDirectionService.new
+  end
 end
