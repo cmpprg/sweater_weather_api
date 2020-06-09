@@ -6,10 +6,9 @@ class Forecast
 
 
   def initialize(location)
-    @city = location[:city]
-    @state = location[:state]
+    @city_state = location
     @weather = weather_info
-    @city_info = "#{@city}, #{@state}"
+    @city_info = Convertable.format_city_state(location)
     @current_weather = CurrentWeather.new(@weather)
     @hourly_weather = HourlyWeather.new(@weather[:hourly])
     @daily_weather = DailyWeather.new(@weather[:daily])
@@ -18,11 +17,11 @@ class Forecast
   private
 
   def weather_info
-    @weather ||= weather_service.weather_data(geo_location.latitude, geo_location.longitude)
+    @weather_data ||= weather_service.weather_data(geo_location.latitude, geo_location.longitude)
   end
 
   def geo_location
-    @location ||= Location.new(google_service.geocode_info_for(@city, @state))
+    @location ||= Location.new(google_service.geocode_info_for(@city_state))
   end
 
   def google_service

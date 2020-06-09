@@ -1,6 +1,6 @@
 class GoogleService
-  def geocode_info_for(city, state)
-    hashed_json(geocode_response(city, state))
+  def geocode_info_for(location)
+    hashed_json(geocode_response(location))
   end
 
   def directions_info_for(origin, destination)
@@ -19,9 +19,9 @@ class GoogleService
     end
   end
 
-  def geocode_response(city, state)
+  def geocode_response(location)
     connect.get('geocode/json') do |req|
-      req.params['address'] = "#{city}, #{state}"
+      req.params['address'] = location
     end
   end
 
