@@ -29,8 +29,8 @@ RSpec.describe 'Sessions API' do
     expect(json[:data]).to have_key(:type)
     expect(json[:data]).to have_key(:attributes)
 
-    expect(json[:data][:attributes]).to have_keys(:email)
-    expect(json[:data][:attributes]).to have_keys(:api_key)
+    expect(json[:data][:attributes]).to have_key(:email)
+    expect(json[:data][:attributes]).to have_key(:api_key)
 
     expect(json[:data][:attributes][:email]).to eql(session_params[:email])
     expect(json[:data][:attributes][:api_key]).to_not be_nil
