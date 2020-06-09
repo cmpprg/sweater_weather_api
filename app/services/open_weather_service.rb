@@ -3,6 +3,10 @@ class OpenWeatherService
     hashed_json(onecall_response(latitude, longitude))
   end
 
+  def hourly_weather_data(latitude, longitude)
+    hashed_json(hourly_onecall_response(latitude, longitude))
+  end
+
   private
 
   def base_url
@@ -11,7 +15,6 @@ class OpenWeatherService
 
   def connect
     Faraday.new(base_url) do |req|
-      req.params['exclude'] = 'minutely'
       req.params['appid'] = ENV['OPEN_WEATHER_KEY']
       req.params['units'] = 'imperial'
     end
@@ -21,6 +24,15 @@ class OpenWeatherService
     connect.get('onecall') do |req|
       req.params['lat'] = latitude
       req.params['lon'] = longitude
+      req.params['exclude'] = 'minutely'
+    end
+  end
+
+  def hourly_onecall_response(latitude, longitude)
+    connect.get('onecall') do |req|
+      req.params['lat'] = latitude
+      req.params['lon'] = longitude
+      req.params['exclude'] = 'current,minutely,daily'
     end
   end
 
