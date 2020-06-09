@@ -22,4 +22,8 @@ module Convertable
   def self.seconds_to_rounded_hour(seconds)
     (seconds / 3600.0).round
   end
+
+  def self.format_city_state(city_state)
+    city_state.sub(',', ', ')
+  end
 end
