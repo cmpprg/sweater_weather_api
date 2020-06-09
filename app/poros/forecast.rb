@@ -22,11 +22,11 @@ class Forecast
   end
 
   def geo_location
-    @location ||= Location.new(geocode_service.info_for(@city, @state))
+    @location ||= Location.new(google_service.geocode_info_for(@city, @state))
   end
 
-  def geocode_service
-    GeocodeService.new
+  def google_service
+    GoogleService.new
   end
 
   def weather_service
