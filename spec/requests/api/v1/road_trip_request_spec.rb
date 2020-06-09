@@ -10,7 +10,7 @@ RSpec.describe 'Road Trip API endpoint' do
     road_trip_params = {
       origin: 'Denver,CO',
       destination: 'Pueblo,CO',
-      api_key: 'jgn983hy48thw9begh98h4539h4'
+      api_key: @user.api_key
     }
 
     post '/api/v1/road_trip', params: road_trip_params.to_json, headers: @headers
