@@ -7,7 +7,7 @@ class Error
   private
 
   def craft_error_message(messages)
-    messages.uniq.to_sentence if messages.kind_of?(Array)
+    return messages.uniq.to_sentence if messages.kind_of?(Array)
     messages
   end
 end
