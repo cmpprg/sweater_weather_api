@@ -4,7 +4,7 @@ class Api::V1::SessionsController < ApplicationController
     if user && password_verified?(user)
       render json: UserSerializer.new(user)
     elsif user.nil?
-      email_error = Error.new(no_user_message) if user.nil?
+      email_error = Error.new(no_user_message)
       render json: ErrorSerializer.new(email_error), status: :not_found
     else
       password_error = Error.new(bad_password_message)
