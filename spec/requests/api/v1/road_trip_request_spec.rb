@@ -38,4 +38,28 @@ RSpec.describe 'Road Trip API endpoint' do
     expect(json[:data][:attributes][:arrival_forecast][:temperature]).to_not be_nil
     expect(json[:data][:attributes][:arrival_forecast][:summary]).to_not be_nil
   end
+
+  it "can error if api-key is bad" do
+    road_trip_params = {
+      origin: 'Denver,CO',
+      destination: 'Pueblo,CO',
+      api_key: "bad4api47587key"
+    }
+
+    post '/api/v1/road_trip', params: road_trip_params.to_json, headers: @headers
+
+    expect(response.status).to eql(401)
+
+    json = hash_json(response.body)
+
+    expect(json[:data]).to have_key(:id)
+    expect(json[:data]).to have_key(:type)
+    expect(json[:data]).to have_key(:attributes)
+
+    expect(json[:data][:type]).to eql('error')
+
+    expect(json[:data][:attributes]).to have_key(:message)
+
+    expect(json[:data][:attributes][:message]).to eql("The API-Key you used is invalid")
+  end
 end
