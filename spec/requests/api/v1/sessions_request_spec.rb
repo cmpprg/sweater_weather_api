@@ -3,19 +3,12 @@ require "rails_helper"
 RSpec.describe 'Sessions API' do
   before(:each) do
     @headers = { 'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
-    user_params = {
-      email: "email@example.com",
-      password: "password",
-      password_confirmation: "password"
-    }
-
-    post '/api/v1/users', params: user_params.to_json, headers: @headers
-    expect(response).to be_successful
+    create_user('user@example.com', 'password')
   end
 
   it "can return user email and api-key after authentication" do
     session_params = {
-      email: "email@example.com",
+      email: "user@example.com",
       password: "password"
     }
 
@@ -38,7 +31,7 @@ RSpec.describe 'Sessions API' do
 
   it "can return error if users email can not be found" do
     session_params = {
-      email: "doesnote@example.com",
+      email: "notuser@example.com",
       password: "password"
     }
 
@@ -57,9 +50,9 @@ RSpec.describe 'Sessions API' do
     expect(json[:data][:attributes][:message]).to eql('Email does not exist in our system, please sign up.')
   end
 
-  it "can return erro if users password is bad" do
+  it "can return error if users password is bad" do
     session_params = {
-      email: "email@example.com",
+      email: "user@example.com",
       password: "badpassword"
     }
 
