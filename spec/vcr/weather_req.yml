@@ -207,4 +207,168 @@ http_interactions:
         rain","icon":"10d"}],"clouds":14,"rain":2.73,"uvi":11.63},{"dt":1592154000,"sunrise":1592130272,"sunset":1592180672,"temp":{"day":87.28,"min":76.35,"max":87.28,"night":77.18,"eve":80.91,"morn":76.35},"feels_like":{"day":88.95,"night":81.95,"eve":81.46,"morn":80.71},"pressure":1015,"humidity":52,"dew_point":67.82,"wind_speed":8.39,"wind_deg":110,"weather":[{"id":500,"main":"Rain","description":"light
         rain","icon":"10d"}],"clouds":51,"rain":0.44,"uvi":11.64}]}'
   recorded_at: Sun, 07 Jun 2020 17:43:30 GMT
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=daytona%20beach,%20%20fl&key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 08 Jun 2020 20:15:16 GMT
+      Pragma:
+      - no-cache
+      Expires:
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      Cache-Control:
+      - no-cache, must-revalidate
+      Vary:
+      - Accept-Language
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      Server-Timing:
+      - gfet4t7; dur=1
+      Alt-Svc:
+      - h3-27=":443"; ma=2592000,h3-25=":443"; ma=2592000,h3-T050=":443"; ma=2592000,h3-Q050=":443";
+        ma=2592000,h3-Q049=":443"; ma=2592000,h3-Q048=":443"; ma=2592000,h3-Q046=":443";
+        ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+           "error_message" : "You must use an API key to authenticate each request to Google Maps Platform APIs. For additional information, please refer to http://g.co/dev/maps-no-account",
+           "results" : [],
+           "status" : "REQUEST_DENIED"
+        }
+  recorded_at: Mon, 08 Jun 2020 20:15:16 GMT
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=daytona%20beach,%20%20fl&key=AIzaSyD1Yizji4_OYad0wfCW2JZIohx2vT3flgg
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 08 Jun 2020 20:21:05 GMT
+      Pragma:
+      - no-cache
+      Expires:
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      Cache-Control:
+      - no-cache, must-revalidate
+      Vary:
+      - Accept-Language
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      Server-Timing:
+      - gfet4t7; dur=288
+      Alt-Svc:
+      - h3-27=":443"; ma=2592000,h3-25=":443"; ma=2592000,h3-T050=":443"; ma=2592000,h3-Q050=":443";
+        ma=2592000,h3-Q049=":443"; ma=2592000,h3-Q048=":443"; ma=2592000,h3-Q046=":443";
+        ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "Daytona Beach",
+                       "short_name" : "Daytona Beach",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Volusia County",
+                       "short_name" : "Volusia County",
+                       "types" : [ "administrative_area_level_2", "political" ]
+                    },
+                    {
+                       "long_name" : "Florida",
+                       "short_name" : "FL",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "United States",
+                       "short_name" : "US",
+                       "types" : [ "country", "political" ]
+                    }
+                 ],
+                 "formatted_address" : "Daytona Beach, FL, USA",
+                 "geometry" : {
+                    "bounds" : {
+                       "northeast" : {
+                          "lat" : 29.2930571,
+                          "lng" : -80.9829099
+                       },
+                       "southwest" : {
+                          "lat" : 29.12747599999999,
+                          "lng" : -81.21030999999999
+                       }
+                    },
+                    "location" : {
+                       "lat" : 29.2108147,
+                       "lng" : -81.0228331
+                    },
+                    "location_type" : "APPROXIMATE",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 29.2930571,
+                          "lng" : -80.9829099
+                       },
+                       "southwest" : {
+                          "lat" : 29.12747599999999,
+                          "lng" : -81.21030999999999
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJg1YCJZTb5ogR6yrLHbc7ajY",
+                 "types" : [ "locality", "political" ]
+              }
+           ],
+           "status" : "OK"
+        }
+  recorded_at: Mon, 08 Jun 2020 20:21:05 GMT
 recorded_with: VCR 6.0.0
