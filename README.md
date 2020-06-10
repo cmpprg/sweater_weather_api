@@ -3,7 +3,7 @@
 2.5.3
 
 ### Description
-Sweater is a Rails base API service. It provides information to an imaginary front end team across many endpoints.
+Sweater Weather is a Rails base API service. It provides information to an imaginary front end team across many endpoints.
 
 ### Heroku URL / Online Base URL for API
 https://sweater-weather-api-rc.herokuapp.com/
