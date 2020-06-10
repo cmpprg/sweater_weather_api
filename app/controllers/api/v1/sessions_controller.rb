@@ -1,7 +1,7 @@
 class Api::V1::SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:email])
-    if user && password_verified?(user)
+    if user_exists_and_password_valid?(user)
       render json: UserSerializer.new(user)
     else
       error = set_error(user)
@@ -11,7 +11,7 @@ class Api::V1::SessionsController < ApplicationController
 
   private
 
-  def user_exists_and_password_valid?
+  def user_exists_and_password_valid?(user)
     user && password_verified?(user)
   end
 
