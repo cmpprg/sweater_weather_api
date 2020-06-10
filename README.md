@@ -1,24 +1,31 @@
-# README
+# Sweater Weather
+### Ruby Version
+2.5.3
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Description
+Sweater is a Rails base API service. It provides information to an imaginary front end team across many endpoints.
 
-Things you may want to cover:
+### Heroku URL / Online Base URL for API
+[Sweater Weather Heroku](https://sweater-weather-api-rc.herokuapp.com/)
 
-* Ruby version
+### Running Locally
+- `git clone git@github.com:cmpprg/sweater_weather_api.git`
+- run `bundle install`,
 
-* System dependencies
+### Endpoints
+- /api/v1/forecast
+ -
+- /api/v1/backgrounds
+- /api/v1/users
+- /api/v1/sessions
+- /api/v1/road_trip
+...
 
-* Configuration
+### Database
+- PostgreSQL
+- `rails db:{create,migrate}` for setup
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Specs
+- Testing with RSpec
+- `bundle exec rspec` to run all tests
+- `bundle exec rspec <filepath>` to run individual specs
