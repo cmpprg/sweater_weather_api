@@ -21,28 +21,28 @@ https://sweater-weather-api-rc.herokuapp.com/
 
 - __/api/v1/users__
   - pass json in body of request:  
-... ```
-    { email: _user@example_,
-      password: _value_,
-       password_confirmation: _value_ }
-    ```
- - creates users and returns information including email and api-key
+  ```
+  { email: _user@example_,
+    password: _value_,
+    password_confirmation: _value_ }
+  ```
+  - creates users and returns information including email and api-key
 - __/api/v1/sessions (returns api-key)__
- - pass json in body of request:  
- ...```
-    { email: _user@example_,
-      password: _value_ }
-    ```
- - returns api-key of user
+  - pass json in body of request:  
+  ```
+  { email: _user@example_,
+    password: _value_ }
+  ```
+  - returns api-key of user
 
 - __/api/v1/road_trip__
- - pass json in body of request:  
- ...```
-    { origin: _city,state_,
-      destination: _city,state_,
-      api-key: _valid api-key_ }
-    ```
- - returns travel time and forecast of destination upon arrival.
+  - pass json in body of request:  
+  ```
+  { origin: _city,state_,
+    destination: _city,state_,
+    api-key: _valid api-key_ }
+  ```
+  - returns travel time and forecast of destination upon arrival.
 
 ### Database
 - PostgreSQL
