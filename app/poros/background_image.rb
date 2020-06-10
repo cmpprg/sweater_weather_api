@@ -11,15 +11,15 @@ class BackgroundImage
 
   private
 
-  def unsplash_service
-    UnsplashService.new
+  def filter_raw_url
+    image_info(@city, @state)[:results].first[:urls][:raw]
   end
 
   def image_info(city, state)
     unsplash_service.image_url_for(city, state)
   end
 
-  def filter_raw_url
-    image_info(@city, @state)[:results].first[:urls][:raw]
+  def unsplash_service
+    UnsplashService.new
   end
 end
