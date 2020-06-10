@@ -7,7 +7,7 @@ RSpec.describe 'Road Trip API endpoint' do
   end
 
   it 'can take origin, destination, and api-key and return trip info json' do
-    VCR.use_cassette('roadtrip_req_happy')
+    VCR.use_cassette('roadtrip_req_happy') do
       road_trip_params = {
         origin: 'Denver,CO',
         destination: 'Pueblo,CO',
