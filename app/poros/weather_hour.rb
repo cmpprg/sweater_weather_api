@@ -14,5 +14,4 @@ class WeatherHour
   def hour_formatted(unix_time)
     Convertable.unix_to_hour_formatted(unix_time)
   end
-
 end
