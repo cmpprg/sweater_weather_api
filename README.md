@@ -55,8 +55,8 @@ https://sweater-weather-api-rc.herokuapp.com/
 
 ### Services / API
 - Google API:
- - Directions
- - Geocode
+  - Directions
+  - Geocode
 - OpenWeather API
- - OneCall
+  - OneCall
 - Unsplash API
