@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'backgrounds API' do
   VCR.use_cassette('background_req') do
-    it "can return a background url for a location" do
-      get "/api/v1/backgrounds?location=denver,co"
+    it 'can return a background url for a location' do
+      get '/api/v1/backgrounds?location=denver,co'
 
       expect(response).to be_successful
 

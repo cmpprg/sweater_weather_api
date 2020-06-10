@@ -8,7 +8,7 @@ RSpec.describe GoogleService do
   end
 
   it "can return a latitude and longitude for a city" do
-    VCR.use_cassette('geocode', record: :new_episodes) do
+    VCR.use_cassette('geocode') do
       location = 'denver,co'
       service = GoogleService.new
       lat_long = service.geocode_info_for(location)

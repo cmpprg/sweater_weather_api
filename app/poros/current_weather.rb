@@ -23,7 +23,8 @@ class CurrentWeather
   end
 
   def time_date_formatted(weather_info)
-    Convertable.unix_to_time_date_formatted(weather_info[:current][:dt])
+    unix_time = weather_info[:current][:dt]
+    Convertable.unix_to_time_date_formatted(unix_time)
   end
 
   def hour_minute_formatted(unix_time)
