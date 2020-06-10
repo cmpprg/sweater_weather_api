@@ -1,24 +1,62 @@
-# README
+# Sweater Weather
+### Ruby Version
+2.5.3
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Description
+Sweater is a Rails base API service. It provides information to an imaginary front end team across many endpoints.
 
-Things you may want to cover:
+### Heroku URL / Online Base URL for API
+[Sweater Weather Heroku](https://sweater-weather-api-rc.herokuapp.com/)
 
-* Ruby version
+### Running Locally
+- `git clone git@github.com:cmpprg/sweater_weather_api.git`
+- run `bundle install`,
 
-* System dependencies
+### Endpoints
+- /api/v1/forecast?location=<city>,<state>
+  - returns weather information for the location
 
-* Configuration
+- /api/v1/backgrounds?location=<city>,<state>
+ - returns an appropriate image from Unsplash based on location
 
-* Database creation
+- /api/v1/users  (creates user)
+ - pass json in body of request:
+ ...```
+    { email: <user@example>,
+      password: <value>,
+      password_confirmation: <value> }
+    ```
 
-* Database initialization
+- /api/v1/sessions (returns api-key)
+ - pass json in body of request:
+ ...```
+    { email: <user@example>,
+      password: <value> }
+    ```
+ - returns api-key of user
 
-* How to run the test suite
+- /api/v1/road_trip
+ - pass json in body of request:
+ ...```
+    { origin: <city,state>,
+      destination: <city,state>,
+      api-key: <valid api-key> }
+    ```
+ - returns travel time and forecast of destination upon arrival.
 
-* Services (job queues, cache servers, search engines, etc.)
+### Database
+- PostgreSQL
+- `rails db:{create,migrate}` for setup
 
-* Deployment instructions
+### Specs
+- Testing with RSpec
+- `bundle exec rspec` to run all tests
+- `bundle exec rspec <filepath>` to run individual specs
 
-* ...
+### Services / API
+- Google API:
+ - Directions
+ - Geocode
+- OpenWeather API
+ - OneCall
+- Unsplash API
