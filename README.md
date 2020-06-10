@@ -6,7 +6,7 @@
 Sweater is a Rails base API service. It provides information to an imaginary front end team across many endpoints.
 
 ### Heroku URL / Online Base URL for API
-[Sweater Weather Heroku](https://sweater-weather-api-rc.herokuapp.com/)
+https://sweater-weather-api-rc.herokuapp.com/
 
 ### Running Locally
 - `git clone git@github.com:cmpprg/sweater_weather_api.git`
