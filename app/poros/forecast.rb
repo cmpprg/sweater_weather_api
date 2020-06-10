@@ -25,7 +25,7 @@ class Forecast
   end
 
   def location_long
-    geo_location.long
+    geo_location.longitude
   end
 
   def geo_location
