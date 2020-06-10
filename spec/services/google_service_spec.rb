@@ -9,14 +9,11 @@ RSpec.describe GoogleService do
 
   it "can return a latitude and longitude for a city" do
     VCR.use_cassette('geocode', record: :new_episodes) do
-      city = 'denver'
-      state = 'co'
+      location = 'denver,co'
       service = GoogleService.new
-      lat_long = service.geocode_info_for(city, state)
+      lat_long = service.geocode_info_for(location)
 
       expect(lat_long).to have_key(:results)
-      expect(lat_long[:results].first[:address_components].first[:long_name]).to eql(city.capitalize)
-      expect(lat_long[:results].first[:address_components][2][:short_name]).to eql(state.upcase)
       expect(lat_long[:results].first[:geometry][:location][:lat]).to eql(39.7392358)
       expect(lat_long[:results].first[:geometry][:location][:lng]).to eql(-104.990251)
     end

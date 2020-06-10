@@ -37,7 +37,7 @@ RSpec.describe 'Sessions API' do
 
     post '/api/v1/sessions', params:session_params.to_json, headers: @headers
 
-    expect(response.status).to eql(404)
+    expect(response.status).to eql(401)
 
     json = hash_json(response.body)
 
