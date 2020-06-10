@@ -13,34 +13,34 @@ https://sweater-weather-api-rc.herokuapp.com/
 - run `bundle install`,
 
 ### Endpoints
-- /api/v1/forecast?location=_city_,_state_
+- __/api/v1/forecast?location=_city_,_state_ __
   - returns weather information for the location
 
-- /api/v1/backgrounds?location=_city_,_state_
+- __/api/v1/backgrounds?location=_city_,_state_ __
  - returns an appropriate image from Unsplash based on location
 
-- /api/v1/users  (creates user)
- - pass json in body of request:
+- __/api/v1/users__
+ - pass json in body of request:  
  ...```
-    { email: <user@example>,
-      password: <value>,
-      password_confirmation: <value> }
+    { email: _user@example_,
+      password: _value_,
+      password_confirmation: _value_ }
     ```
-
-- /api/v1/sessions (returns api-key)
- - pass json in body of request:
+ - creates users and returns information including email and api-key
+- __/api/v1/sessions (returns api-key)__
+ - pass json in body of request:  
  ...```
-    { email: <user@example>,
-      password: <value> }
+    { email: _user@example_,
+      password: _value_ }
     ```
  - returns api-key of user
 
-- /api/v1/road_trip
- - pass json in body of request:
+- __/api/v1/road_trip__
+ - pass json in body of request:  
  ...```
-    { origin: <city,state>,
-      destination: <city,state>,
-      api-key: <valid api-key> }
+    { origin: _city,state_,
+      destination: _city,state_,
+      api-key: _valid api-key_ }
     ```
  - returns travel time and forecast of destination upon arrival.
 
@@ -51,7 +51,7 @@ https://sweater-weather-api-rc.herokuapp.com/
 ### Specs
 - Testing with RSpec
 - `bundle exec rspec` to run all tests
-- `bundle exec rspec <filepath>` to run individual specs
+- `bundle exec rspec _filepath_` to run individual specs
 
 ### Services / API
 - Google API:
