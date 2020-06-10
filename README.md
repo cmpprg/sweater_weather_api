@@ -13,10 +13,10 @@ https://sweater-weather-api-rc.herokuapp.com/
 - run `bundle install`,
 
 ### Endpoints
-- /api/v1/forecast?location=<city>,<state>
+- /api/v1/forecast?location=_city_,_state_
   - returns weather information for the location
 
-- /api/v1/backgrounds?location=<city>,<state>
+- /api/v1/backgrounds?location=_city_,_state_
  - returns an appropriate image from Unsplash based on location
 
 - /api/v1/users  (creates user)
