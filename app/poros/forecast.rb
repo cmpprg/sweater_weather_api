@@ -17,11 +17,23 @@ class Forecast
   private
 
   def weather_info
-    @weather_data ||= weather_service.weather_data(geo_location.latitude, geo_location.longitude)
+    @weather_data ||= weather_service.weather_data(location_lat, location_long)
+  end
+
+  def location_lat
+    geo_location.latitude
+  end
+
+  def location_long
+    geo_location.long
   end
 
   def geo_location
-    @location ||= Location.new(google_service.geocode_info_for(@city_state))
+    @location ||= Location.new(geocode_data)
+  end
+
+  def geocode_data
+    @geocode_data ||= google_service.geocode_info_for(@city_state)
   end
 
   def google_service
