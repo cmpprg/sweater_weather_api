@@ -13,19 +13,19 @@ https://sweater-weather-api-rc.herokuapp.com/
 - run `bundle install`,
 
 ### Endpoints
-- __/api/v1/forecast?location=_city_,_state_ __
+- __/api/v1/forecast?location=_city_,_state___
   - returns weather information for the location
 
-- __/api/v1/backgrounds?location=_city_,_state_ __
+- __/api/v1/backgrounds?location=_city_,_state___
  - returns an appropriate image from Unsplash based on location
 
 - __/api/v1/users__
  - pass json in body of request:  
- ...```
-    { email: _user@example_,
-      password: _value_,
-      password_confirmation: _value_ }
-    ```
+ ```
+ { email: _user@example_,
+   password: _value_,
+   password_confirmation: _value_ }
+ ```
  - creates users and returns information including email and api-key
 - __/api/v1/sessions (returns api-key)__
  - pass json in body of request:  
