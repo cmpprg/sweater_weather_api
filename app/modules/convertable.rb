@@ -18,4 +18,12 @@ module Convertable
   def self.unix_to_day_of_week(unix_time)
     Time.at(unix_time).strftime('%A')
   end
+
+  def self.seconds_to_rounded_hour(seconds)
+    (seconds / 3600.0).round
+  end
+
+  def self.format_city_state(city_state)
+    city_state.sub(',', ', ')
+  end
 end
